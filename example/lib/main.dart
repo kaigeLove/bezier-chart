@@ -195,7 +195,7 @@ Widget sample1(BuildContext context) {
                 bezierChartScale: BezierChartScale.CUSTOM,
                 selectedValue: 30,
                 xAxisCustomValues: const [0, 5, 10, 15, 20, 25, 30, 35],
-                footerValueBuilder: (double value) {
+                footerValueBuilder: (double? value) {
                   return "${formatAsIntOrDouble(value)}\ndays";
                 },
                 series: const [
@@ -225,10 +225,10 @@ Widget sample1(BuildContext context) {
                   stepsYAxis: 10,
                   backgroundGradient: LinearGradient(
                     colors: [
-                      Colors.red[300],
-                      Colors.red[400],
-                      Colors.red[400],
-                      Colors.red[500],
+                      Colors.red.shade300,
+                      Colors.red.shade400,
+                      Colors.red.shade400,
+                      Colors.red.shade500,
                       Colors.red,
                     ],
                     begin: Alignment.topCenter,
@@ -258,8 +258,8 @@ Widget sample2(BuildContext context) {
           child: BezierChart(
             bezierChartScale: BezierChartScale.CUSTOM,
             xAxisCustomValues: const [0, 3, 10, 15, 20, 25, 30, 35],
-            footerValueBuilder: (double value) {
-              return "${value.toInt()}\nHrs";
+            footerValueBuilder: (double? value) {
+              return "${value?.toInt()}\nHrs";
             },
             series: const [
               BezierLine(
@@ -320,10 +320,10 @@ Widget sample2(BuildContext context) {
               footerHeight: 45,
               backgroundGradient: LinearGradient(
                 colors: [
-                  Colors.purpleAccent[400],
-                  Colors.purpleAccent[400],
-                  Colors.purpleAccent[700],
-                  Colors.purpleAccent[700],
+                  Colors.purple.shade300,
+                  Colors.purple.shade400,
+                  Colors.purple.shade400,
+                  Colors.purple.shade500,
                   Colors.purpleAccent,
                 ],
                 begin: Alignment.topCenter,
@@ -364,9 +364,9 @@ Widget sample3(BuildContext context) {
         },
         selectedDate: toDate,
         //this is optional
-        footerDateTimeBuilder: (DateTime value, BezierChartScale scaleType) {
+        footerDateTimeBuilder: (DateTime? value, BezierChartScale? scaleType) {
           final newFormat = intl.DateFormat('dd/MM');
-          return newFormat.format(value);
+          return newFormat.format(value!);
         },
         series: [
           BezierLine(
@@ -523,10 +523,10 @@ Widget sample5(BuildContext context) {
           verticalIndicatorFixedPosition: false,
           backgroundGradient: LinearGradient(
             colors: [
-              Colors.red[300],
-              Colors.red[400],
-              Colors.red[400],
-              Colors.red[500],
+              Colors.red.shade300,
+              Colors.red.shade400,
+              Colors.red.shade400,
+              Colors.red.shade500,
               Colors.red,
             ],
             begin: Alignment.topCenter,
@@ -569,10 +569,10 @@ Widget sample6(BuildContext context) {
           context,
           LinearGradient(
             colors: [
-              Colors.red[300],
-              Colors.red[400],
-              Colors.red[400],
-              Colors.red[500],
+              Colors.red.shade300,
+              Colors.red.shade400,
+              Colors.red.shade400,
+              Colors.red.shade500,
               Colors.red,
             ],
             begin: Alignment.topCenter,
@@ -584,10 +584,10 @@ Widget sample6(BuildContext context) {
             context,
             LinearGradient(
               colors: [
-                Colors.purple[300],
-                Colors.purple[400],
-                Colors.purple[400],
-                Colors.purple[500],
+                Colors.purple.shade300,
+                Colors.purple.shade400,
+                Colors.purple.shade400,
+                Colors.purple.shade500,
                 Colors.purple,
               ],
               begin: Alignment.topCenter,
@@ -710,7 +710,7 @@ Widget sample7(BuildContext context) {
               child: BezierChart(
                 bezierChartScale: BezierChartScale.CUSTOM,
                 xAxisCustomValues: const [0, 5, 10, 15, 20, 25, 30, 35],
-                footerValueBuilder: (double value) {
+                footerValueBuilder: (double? value) {
                   return "${formatAsIntOrDouble(value)}\ndays";
                 },
                 series: const [
@@ -737,10 +737,10 @@ Widget sample7(BuildContext context) {
                   stepsYAxis: 15,
                   backgroundGradient: LinearGradient(
                     colors: [
-                      Colors.red[300],
-                      Colors.red[400],
-                      Colors.red[400],
-                      Colors.red[500],
+                      Colors.red.shade300,
+                      Colors.red.shade400,
+                      Colors.red.shade400,
+                      Colors.red.shade500,
                       Colors.red,
                     ],
                     begin: Alignment.topCenter,
@@ -809,10 +809,10 @@ Widget sample8(BuildContext context) {
           stepsYAxis: 25,
           backgroundGradient: LinearGradient(
             colors: [
-              Colors.red[300],
-              Colors.red[400],
-              Colors.red[400],
-              Colors.red[500],
+              Colors.red.shade300,
+              Colors.red.shade400,
+              Colors.red.shade400,
+              Colors.red.shade500,
               Colors.red,
             ],
             begin: Alignment.topCenter,
@@ -852,9 +852,9 @@ Widget sample9(BuildContext context) {
         },
         selectedDate: toDate,
         //this is optional
-        footerDateTimeBuilder: (DateTime value, BezierChartScale scaleType) {
+        footerDateTimeBuilder: (DateTime? value, BezierChartScale? scaleType) {
           final newFormat = intl.DateFormat('dd/MM');
-          return newFormat.format(value);
+          return newFormat.format(value!);
         },
         series: [
           BezierLine(
@@ -907,14 +907,14 @@ Widget sample11(BuildContext context) {
         },
         selectedDate: toDate,
         //this is optional
-        footerDateTimeBuilder: (DateTime value, BezierChartScale scaleType) {
+        footerDateTimeBuilder: (DateTime? value, BezierChartScale? scaleType) {
           final newFormat = intl.DateFormat('dd/MMM');
-          return newFormat.format(value);
+          return newFormat.format(value!);
         },
         bubbleLabelDateTimeBuilder:
-            (DateTime value, BezierChartScale scaleType) {
+            (DateTime? value, BezierChartScale? scaleType) {
           final newFormat = intl.DateFormat('EEE d');
-          return "${newFormat.format(value)}\n";
+          return "${newFormat.format(value!)}\n";
         },
         series: [
           BezierLine(

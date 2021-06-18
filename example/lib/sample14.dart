@@ -1,7 +1,7 @@
-import 'package:intl/intl.dart' as intl;
-import 'dart:async';
+
 import 'package:bezier_chart/bezier_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart' as intl;
 
 class Sample14 extends StatefulWidget {
   @override
@@ -9,8 +9,8 @@ class Sample14 extends StatefulWidget {
 }
 
 class _Sample14State extends State<Sample14> {
-  DateTime fromDate;
-  DateTime toDate;
+  DateTime? fromDate;
+  DateTime? toDate;
 
   @override
   void initState() {
@@ -26,8 +26,8 @@ class _Sample14State extends State<Sample14> {
 
   @override
   Widget build(BuildContext context) {
-    final date1 = toDate.subtract(Duration(days: 2));
-    final date2 = toDate.subtract(Duration(days: 3));
+    final date1 = toDate?.subtract(Duration(days: 2));
+    final date2 = toDate?.subtract(Duration(days: 3));
     return Scaffold(
       appBar: AppBar(
         title: Text("Dynamic date range"),
@@ -66,14 +66,14 @@ class _Sample14State extends State<Sample14> {
             selectedDate: toDate,
             //this is optional
             footerDateTimeBuilder:
-                (DateTime value, BezierChartScale scaleType) {
+                (DateTime? value, BezierChartScale? scaleType) {
               final newFormat = intl.DateFormat('dd/MMM');
-              return newFormat.format(value);
+              return newFormat.format(value!);
             },
             bubbleLabelDateTimeBuilder:
-                (DateTime value, BezierChartScale scaleType) {
+                (DateTime? value, BezierChartScale? scaleType) {
               final newFormat = intl.DateFormat('EEE d');
-              return "${newFormat.format(value)}\n";
+              return "${newFormat.format(value!)}\n";
             },
             series: [
               BezierLine(
